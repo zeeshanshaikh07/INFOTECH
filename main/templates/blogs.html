@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'assets/header.html' %}
+{% include 'assets/header.html' %}
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blogs</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
 </head>
-<body>
-    
+<style>
+    .blogs img {
+        border-radius: 8%;
+    }
+</style>
+
+<body class="bg-black">
+    <div class="text-white text-center underline text-3xl  font-bold italic">
+        Blogs
+    </div>
+    <div class="grid grid-cols-1 my-3 bg-white p-3 border-b-4 border-blue-300 w-9/12 lg:w-7/12  rounded-lg mx-auto ">
+        <div class=" flex blogs md:gap-4 flex-col md:flex-row ">
+            <!-- <img src="{% static 'images/b2.webp' %}" alt=""> -->
+            <img class="h-48 w-72  mx-auto transition ease-in-out duration-300 transform hover:scale-105 "
+                src="https://beebom.com/wp-content/uploads/2021/05/shutterstock_1960596682.jpg" alt="">
+            <div class="flex flex-col my-auto ">
+                <h1 class="content-center text-2xl py-7 font-semibold">
+                    Elon Musk Says He Has Not and “Won’t Sell Any Doge”
+                </h1>
+                <button id="btn"
+                    class="bg-blue-500 focus:outline-none max-w-max px-5 mx-5 font-semibold transition ease-in-out duration-300 transform hover:scale-105 rounded">
+                    Read More
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Modal  -->
+
+
+    </div>
+    <div class="animate__animated animate__zoomIn hidden  absolute lg:w-8/12 md:m-auto inset-20 bg-yellow-200 rounded-lg"
+        id="overlay">
+        <div class="flex justify-between p-5 font-bold text-2xl">
+            <h1>Elon Musk Says He Has Not and “Won’t Sell Any Doge”</h1>
+            <i id="close-modal" class="fa fa-times-circle cursor-pointer" aria-hidden="true"></i>
+
+        </div>
+        <img class="md:h-3/6  mx-auto transition ease-in-out duration-300 transform hover:scale-105 "
+            src="https://beebom.com/wp-content/uploads/2021/05/shutterstock_1960596682.jpg" style="border-radius: 8px;"
+            alt="">
+        <div class="p-5 font-semibold text-lg overflow-clip">
+            Recently, a single tweet by the Tesla CEO Elon Musk sent the value of the most popular cryptocurrency,
+            Bitcoin, tumbling down after it reached an unprecedented market cap earlier this year. The eccentric
+            billionaire is pretty expressive about cryptocurrencies on Twitter and was the key reason for the recent
+            popularity of meme-based cryptocurrency, Dogecoin. Now, after the Bitcoin crash, Musk showed appreciation
+            for Dogecoin yet again and said that he would not be selling his Dogecoin holdings anytime soon.
+            Tesla investor Dave Lee (@hedave7) recently shared a tweet saying that he does “not think that Elon (Musk)
+            would ever sell his Doge holding” as he is the “ultimate hodler”. To this, Musk responded by saying that he
+            has not and “won’t sell any Doge”. You can check out the tweet right below.
+
+
+        </div>
+    </div>
 </body>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const overlay = document.querySelector('#overlay')
+        const delBtn = document.querySelector('#btn')
+        const closeBtn = document.querySelector('#close-modal')
+
+        const toggleModal = () => {
+            overlay.classList.toggle('hidden')
+        }
+
+        delBtn.addEventListener('click', toggleModal)
+
+        closeBtn.addEventListener('click', toggleModal)
+    })
+</script>
+
 </html>
