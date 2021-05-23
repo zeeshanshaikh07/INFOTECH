@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'assets/header.html' %}
-    {% load static %}
+{% include 'assets/header.html' %}
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
-<body>
 
+
+<body class="bg-black mt-10">
+    <div class=" grid grid-cols-1 xl:grid-cols-2  justify-items-center gap-10 xl:gap-1 m-5 ">
+        <div
+            class=" bg-blue-200 transform transition hover:scale-105 ease-in-out duration-300 flex  items-center  gap-3 flex-col sm:flex-row rounded p-3 md:w-10/12  ">
+            <img class="h-56 float-left rounded-full w-56"
+                src="https://beebom.com/wp-content/uploads/2021/05/when-will-your-phone-get-Android-12-update-Samsung-Xiaomi-Realme-OnePlus-Asus-and-more.jpg"
+                alt="">
+            <div class="space-y-5">
+                <h1 class=" text-2xl text-center font-bold">
+                    When Will My Phone Get Android 12 Update?
+                </h1>
+                <p class=" text-xl text-center ">
+                    Android 12’s first beta is officially here and you can install it right now on supported phones.
+                    While
+                    not everyone might be having a compatible phone to get an early taste of Android 12, we have
+                    compiled a
+                    complete list of phones that will get the Android 12 update after it gets a stable release later
+                    this
+                    year.
+                </p>
+            </div>
+        </div>
+        <div
+            class=" bg-blue-200 transform transition hover:scale-105 ease-in-out duration-300 flex items-center gap-3 flex-col sm:flex-row rounded p-3 md:w-10/12 ">
+            <img class="h-56 float-left rounded-full w-56"
+                src="https://beebom.com/wp-content/uploads/2021/05/redmi-note-10s-launched-india.jpg" alt="">
+            <div class="space-y-5">
+                <h1 class=" text-2xl text-center font-bold">
+                    Redmi Note 10S Launched in India with Helio G95, Price Starting at ₹14,999
+                </h1>
+                <p class=" text-xl text-center overflow-auto ">
+                    The Redmi Note 10S is very much a Redmi Note 10 as far as the design language is concerned,
+                    especially with regards to the camera module. The phone comes with a 6.43-inch SuperAMOLED panel
+                    with a resolution of 2400×1080 as well as support for the DCI-P3 color gamut, 1100 nits of peak
+                    brightness, and 180Hz touch sampling rate — all of which sounds pretty good.
+                </p>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>
