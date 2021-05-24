@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +7,14 @@
 <!-- <title></title> -->
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+<link rel="icon" href="{% static 'images/title.png' %}" type="image/icon type">
 <div id="Navbar" class="h-16  bg-opaity-80 text-white ">
     <!-- Top Navbar -->
     <div
         class="flex space-x-20 bg-black text-3xl justify-center overflow-hidden fixed z-10 top-0  w-full font-semibold font-mono  py-3 ">
-        <a class=" p-1 rounded transition ease-in-out duration-300" href="home">InfoTech</a>
+        <a class=" p-1   rounded transition ease-in-out duration-300" href="home"><img
+                class="h-14 -mt-2 transform hover:scale-105 transition ease-in-out duration-300"
+                src="{% static 'images/logo.png' %}" alt=""></a>
         <div class="hidden lg:flex gap-4">
             <a class="hover:bg-yellow-600 p-1 rounded transition ease-in-out duration-300" href="news">News</a>
             <a class="hover:bg-yellow-600 p-1 rounded transition ease-in-out duration-300" href="blogs">Blogs</a>
