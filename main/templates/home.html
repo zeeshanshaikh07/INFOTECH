@@ -12,75 +12,49 @@
 
 </head>
 <style>
+
     .news img {
         border-radius: 8%;
 
     }
 </style>
 
-<body class="bg-gray-900">
+<body class="bg-gray-900 ">
     <!-- NavBar -->
 
 
     <!-- Latest updates grid -->
 
-    <div id="grid-carousal" class="grid grid-cols-1  lg:grid-cols-3 gap-4 m-3 justify-items-center m-3">
-        <div class="block bg-black transition ease-in-out duration-300 transform hover:scale-105 p-2 rounded-xl">
+    <div id="grid-carousal" class="sm:grid flex flex-col  justify-center  lg:grid-cols-3 gap-4 m-3 sm:justify-items-center m-3">
+        {% for n in news %}
+        <a href="news#{{n.nId}}" class="block bg-black transition ease-in-out duration-300 transform hover:scale-105 p-2 rounded-xl">
 
-            <img class="rounded-md" src="{% static 'images/2.jpg'%}" alt="">
+            <img class="rounded-md sm:h-96" src="{{n.nPic.url}}" alt="">
             <h1 class=" text-white  text-xl md:text-2xl font-semibold z-10  ">
-                Apple WWDC 2021: Dates, iOS 15, macOS 12 Features and What More to Expect
+                {{ n.nHeadline}}
             </h1>
 
-        </div>
-        <div class="block bg-black transition ease-in-out duration-300 transform hover:scale-105 p-2 rounded-xl">
-
-            <img class="rounded-md" src="{% static 'images/3.jpg'%}" alt="">
-            <h1 class=" text-white  text-xl md:text-2xl font-semibold z-10  ">
-                macOS 12: Release Date, New Features, Supported Devices, and More
-            </h1>
-
-        </div>
-        <div class="block bg-black transition ease-in-out duration-300 transform hover:scale-105 p-2 rounded-xl">
-
-            <img class="rounded-md" src="{% static 'images/1.jpg'%}" alt="">
-            <h1 class=" text-white  text-xl md:text-2xl font-semibold z-10  ">
-                21 Best New Android 12 Features Coming to Your Phone
-            </h1>
-
-        </div>
+        </a>
+        {% endfor %}
     </div>
 
     <!-- Latest news sections -->
-    <div class="flex justify-between md:flex-row flex-col">
+    <div class="flex justify-between  md:flex-row flex-col ">
         <!-- news updates -->
-        <div class="  bg-white  md:w-9/12 lg:w-6/12 m-3 rounded  pt-5 ">
+        <div class="  bg-white  md:w-9/12 lg:w-6/12 m-3 rounded  pt-5 pb-10  ">
             <h1 class="text-3xl font-bold px-4 border-b-4 border-blue-500 mb-3 mx-1">
-                Latest News
+                LATEST NEWS
             </h1>
-            <div class="w-10/12 flex news justify-center flex-col space-y-5 ">
-                <div class="">
-                    <img class="h-48 float-left px-4  transition ease-in-out duration-300 transform hover:scale-105"
-                        src="{% static 'images/2.jpg'%}" alt="">
-                    <h1 class=" px-4  text-xl md:text-2xl font-semibold   ">
-                        Apple WWDC 2021: Dates, iOS 15, macOS 12 Features and What More to Expect
+            <div class="w-10/12 flex news justify-center flex-col space-y-5 w-full  ">
+                {% for n in news2 %}
+                <a href="news#{{n.nId}}" class="flex justify-center rounded mx-8 my-3 flex-col md:flex-row  w-10/12">
+                    <img class="h-48 w-80 float-left px-4  transition ease-in-out duration-300 transform hover:scale-105"
+                        src="{{n.nPic.url}}" alt="">
+                    <h1 class=" px-4 mt-8 text-xl md:text-2xl font-semibold   ">
+                        {{ n.nHeadline}}
                     </h1>
-                </div>
-                <div>
-                    <img class="h-48 float-left px-4 transition ease-in-out duration-300 transform hover:scale-105"
-                        src="{% static 'images/3.jpg'%}" alt="">
-                    <h1 class="  px-4 text-xl md:text-2xl font-semibold   ">
-                        macOS 12: Release Date, New Features, Supported Devices, and More
-
-                    </h1>
-                </div>
-                <div>
-                    <img class="h-48 float-left px-4  transition ease-in-out duration-300 transform hover:scale-105"
-                        src="{% static 'images/1.jpg'%}" alt="">
-                    <h1 class=" px-4  text-xl md:text-2xl font-semibold   ">
-                        21 Best New Android 12 Features Coming to Your Phone
-                    </h1>
-                </div>
+                </a>
+                {% endfor %}
             </div>
 
         </div>
@@ -88,23 +62,18 @@
         <!-- Blogs updates  -->
         <div class=" bg-white  md:w-9/12 lg:w-6/12 m-3 rounded  pt-5">
             <h1 class="text-3xl font-bold px-4 border-b-4 border-blue-500 mb-3 mx-1">
-                Popular Blogs
+                POPULAR BLOGS
             </h1>
             <div class="w-10/12 flex news justify-center flex-col space-y-5 ">
-                <div class="">
-                    <img class="h-48 float-left px-4 transition ease-in-out duration-300 transform hover:scale-105  "
-                        src="{% static 'images/b2.webp'%}" alt="">
-                    <h1 class=" px-4  text-xl md:text-2xl font-semibold   ">
-                        Elon Musk Says He Has Not and “Won’t Sell Any Doge”
+                {% for b in blogs %}
+                <a  href="blogs#{{b.bId}}" class="flex justify-center rounded mx-8 my-3 flex-col md:flex-row  w-10/12">
+                    <img class="h-48 w-80 float-left px-4 transition ease-in-out duration-300 transform hover:scale-105  "
+                        src="{{b.bPic.url}}" alt="">
+                    <h1 class=" px-4 mt-8 text-xl md:text-2xl font-semibold   ">
+                        {{ b.bHeadline}}
                     </h1>
-                </div>
-                <div class="">
-                    <img class="h-48 float-left px-4 transition ease-in-out duration-300 transform hover:scale-105 "
-                        src="{% static 'images/b1.webp'%}" alt="">
-                    <h1 class=" px-4  text-xl md:text-2xl font-semibold   ">
-                        OnePlus to Launch New 40-Inch Smart TV on 24 May in India
-                    </h1>
-                </div>
+                </a>
+                {% endfor %}
             </div>
         </div>
     </div>
