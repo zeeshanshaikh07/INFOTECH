@@ -2,6 +2,7 @@
 <html lang="en">
 {% include 'assets/header.html' %}
 {% load static %}
+{% load mathfilters %}
 
 <head>
     <meta charset="UTF-8">
@@ -21,18 +22,17 @@
     <div class=" grid grid-cols-1 xl:grid-cols-1 m-10  justify-items-center   ">
         {% for n in news %}
 
-
-        <div id={{n.nId}} class=" bg-white border-b-4 border-blue-300 transform transition flex  items-center m-3 p-3 flex-col rounded  md:w-10/12  ">
+        <div id="{{ n.nId|sub:1  }}"
+            class=" bg-white border-b-4 border-blue-300 transform transition flex  items-center m-3 p-3 flex-col rounded  md:w-10/12  ">
             <h1 class=" text-2xl text-center font-bold mb-8">
                 {{ n.nHeadline}}
-             </h1>
+            </h1>
 
             <div class=" text-left flex md:flex-row flex-col gap-5 justify-between ">
                 <img class="h-48 float-left rounded-lg  transition ease-in-out duration-500 transform hover:scale-105"
-                src="{{n.nPic.url}}"
-                alt="">
+                    src="{{n.nPic.url}}" alt="">
                 <p class=" text-xl  ">
-                   {{n.nBody}}
+                    {{n.nBody}}
                 </p>
             </div>
         </div>
