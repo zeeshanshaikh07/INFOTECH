@@ -24,7 +24,8 @@
         Blogs
     </div>
     {% for b in blogs %}
-    <div  id={{b.bId}} class="grid grid-cols-1 my-3 bg-white p-3 border-b-4 border-blue-300 w-9/12 lg:w-7/12  rounded-lg mx-auto ">
+    <div id="{{b.bId}}"
+        class="grid grid-cols-1 my-3 bg-white p-3 border-b-4 border-blue-300 w-9/12 lg:w-7/12  rounded-lg mx-auto ">
         <div class=" flex blogs md:gap-4 flex-col md:flex-row ">
             <!-- <img src="{% static 'images/b2.webp' %}" alt=""> -->
             <img class="h-48 w-72  mx-auto transition ease-in-out duration-300 transform hover:scale-105 "
@@ -33,7 +34,7 @@
                 <h1 class="content-center text-2xl py-7 font-semibold">
                     {{ b.bHeadline}}
                 </h1>
-                <button id="btn"
+                <button id="btn{{b.bId}}"
                     class="bg-blue-500 focus:outline-none max-w-max px-5 mx-5 font-semibold transition ease-in-out duration-300 transform hover:scale-105 rounded">
                     Read More
                 </button>
@@ -46,15 +47,14 @@
 
     </div>
     <div class="animate__animated animate__zoomIn hidden  absolute lg:w-8/12 md:m-auto inset-20 z-10 bg-yellow-200 rounded-lg"
-        id="overlay">
+        id="overlay{{b.bId}}">
         <div class="flex justify-between p-5 font-bold text-2xl">
             <h1>{{ b.bHeadline}}</h1>
-            <i id="close-modal" class="fa fa-times-circle cursor-pointer" aria-hidden="true"></i>
+            <i id="close-modal{{b.bId}}" class="fa fa-times-circle cursor-pointer" aria-hidden="true"></i>
 
         </div>
         <img class="md:h-3/6  mx-auto transition ease-in-out duration-300 transform hover:scale-105 "
-            src="{{b.bPic.url}}" style="border-radius: 8px;"
-            alt="">
+            src="{{b.bPic.url}}" style="border-radius: 8px;" alt="">
         <div class="p-5 font-semibold text-lg overflow-clip">
             {{b.bBody}}
 
@@ -63,11 +63,13 @@
     </div>
     {% endfor %}
 </body>
+{% for b in blogs %}
+
 <script>
     window.addEventListener('DOMContentLoaded', () => {
-        const overlay = document.querySelector('#overlay')
-        const delBtn = document.querySelector('#btn')
-        const closeBtn = document.querySelector('#close-modal')
+        const overlay = document.querySelector('#overlay{{b.bId}}')
+        const delBtn = document.querySelector('#btn{{b.bId}}')
+        const closeBtn = document.querySelector('#close-modal{{b.bId}}')
 
         const toggleModal = () => {
             overlay.classList.toggle('hidden')
@@ -78,5 +80,6 @@
         closeBtn.addEventListener('click', toggleModal)
     })
 </script>
+{% endfor %}
 
 </html>
